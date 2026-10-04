@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECE GPA &amp; CGPA Calculator | SSMIET Dindigul</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <img class="college-logo" src="images/ssmiet-logo.png" alt="SSM Institute of Engineering and Technology logo" width="110" height="107">
+      <div class="header-text">
+        <div class="college-name">SSM Institute of Engineering and Technology</div>
+        <div class="college-place">Dindigul, Tamil Nadu</div>
+        <div class="dept-name">Department of Electronics and Communication Engineering</div>
+      </div>
+    </div>
+    <div class="program-bar">
+      <div class="wrap">B.E. Electronics and Communication Engineering &nbsp;|&nbsp; Anna University Regulations 2021</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <noscript><p class="alert">This calculator needs JavaScript. Please enable it in your browser.</p></noscript>
+
+    <!-- HOME -->
+    <section data-view="home">
+      <h1>ECE GPA &amp; CGPA Calculator</h1>
+      <p class="subtitle">GPA &amp; CGPA Calculator for SSMIET ECE Students</p>
+      <div class="choice-grid">
+        <button class="choice" data-go="gpa" type="button">
+          <strong>Calculate GPA</strong>
+          <span>Pick a semester, choose your grades and get that semester's GPA.</span>
+        </button>
+        <button class="choice" data-go="cgpa" type="button">
+          <strong>Calculate CGPA</strong>
+          <span>Enter the GPA of each completed semester to get your overall CGPA.</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- GPA -->
+    <section data-view="gpa" hidden>
+      <button class="back" data-go="home" type="button">&larr; Back</button>
+      <h2>Calculate GPA</h2>
+      <p class="hint">Choose a semester, then select the grade you obtained in each course.</p>
+
+      <div class="card">
+        <label class="field" for="semester-select">Select Semester</label>
+        <div class="semester-picker"><select id="semester-select"></select></div>
+      </div>
+
+      <div class="card" id="grade-scale">
+        <h3>Grade Scale</h3>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Grade</th><th>Marks</th><th class="num">Grade point</th><th>Counted?</th></tr></thead>
+            <tbody id="grade-scale-body"></tbody>
+          </table>
+        </div>
+        <p class="formula">RA, SA and W carry 0 grade points and are left out of GPA and CGPA completely, including their credits.</p>
+      </div>
+
+      <div id="gpa-area" hidden>
+        <div class="card">
+          <h3 id="sem-title"></h3>
+          <p class="note" id="sem-note" hidden></p>
+          <div id="gpa-courses"></div>
+          <div id="gpa-errors" class="alert" role="alert" hidden></div>
+          <div class="btn-row">
+            <button class="btn" id="gpa-calc" type="button">Calculate GPA</button>
+            <button class="btn secondary" id="gpa-reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="card result" id="gpa-result" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CGPA -->
+    <section data-view="cgpa" hidden>
+      <button class="back" data-go="home" type="button">&larr; Back</button>
+      <h2>Calculate CGPA</h2>
+      <p class="hint">Tick the semesters you have completed and enter the GPA for each (0 to 10). You don't need to fill all 8.</p>
+      <div class="card">
+        <div id="cgpa-rows"></div>
+        <div id="cgpa-errors" class="alert" role="alert" hidden></div>
+        <div class="btn-row">
+          <button class="btn" id="cgpa-calc" type="button">Calculate CGPA</button>
+          <button class="btn secondary" id="cgpa-reset" type="button">Reset</button>
+        </div>
+      </div>
+      <div class="card result" id="cgpa-result" hidden aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <div class="footer-name">SSMIET &ndash; Department of Electronics and Communication Engineering</div>
+    <div class="footer-small">Student Academic Tool | Anna University Regulations 2021</div>
+    <div class="footer-small">This is a student tool; your official mark sheet is the final authority.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
